@@ -17,7 +17,6 @@
     #3f3f3f,
     #535353
   );
-  /* overflow: auto; */
 }
 
 /* regole flex */
@@ -90,7 +89,7 @@ nav {
 .filter select {
   height: 25px;
   width: 100%;
-  margin-top: 15px;
+  margin: 15px 0;
   padding-left: 10px;
   color: white;
   cursor: pointer;
@@ -102,14 +101,32 @@ nav {
   background-repeat: no-repeat;
   background-position-x: 100%;
 }
+
+.sort {
+  margin: 15px 0;
+  font-size: 12px;
+}
+
+.sort .icon {
+  margin-right: 15px;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+.sort .icon:hover {
+  color: #d3fbd8;
+}
+
 /* card */
 .card_container {
+  min-height: 0;
   width: 80%;
-  padding: 20px;
+  padding: 10px 25px;
   overflow: auto;
 }
 
 .card {
+  min-height: 0;
   width: 270px;
   margin: 20px;
   padding: 10px;

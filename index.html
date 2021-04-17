@@ -38,28 +38,46 @@
             <h1>disc</h1>
           </div>
           <div class="settings">
+            <!-- filtri -->
             <div class="filter">
-
               <select v-model="filter">
-                <option value="">Search for... </option>
+                <option value="">Search for...</option>
                 <option v-for="filter in filters" :value="filter">
                   {{filter}}
                 </option>
               </select>
-
-              <select v-if="filter == 'Genre' || filter == 'Both'" v-model="genSel">
+              <select
+                v-if="filter == 'Genre' || filter == 'Both'"
+                v-model="genSel"
+              >
                 <option value="">Filter for genre</option>
                 <option v-for="genre in genres" :value="genre">
                   {{genre}}
                 </option>
               </select>
-
-              <select v-if="filter == 'Author' || filter == 'Both'" v-model="autSel">
+              <select
+                v-if="filter == 'Author' || filter == 'Both'"
+                v-model="autSel"
+              >
                 <option value="">Filter for author</option>
                 <option v-for="author in authors" :value="author">
                   {{author}}
                 </option>
               </select>
+            </div>
+
+            <!-- ordina -->
+            <div class="sort">
+              <span class="icon" @click="sortIncr"
+                ><i class="fas fa-sort-numeric-down"></i
+              ></span>
+              <span>Increasing year</span>
+            </div>
+            <div class="sort">
+              <span class="icon" @click="sortDecr"
+                ><i class="fas fa-sort-numeric-down-alt"></i
+              ></span>
+              <span>Descending year</span>
             </div>
           </div>
         </nav>

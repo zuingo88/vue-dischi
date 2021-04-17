@@ -41,16 +41,22 @@ function initVue() {
     },
     methods: {
       genFilter: function () {
-          this.genSel = '';
+        this.genSel = "";
         this.albums.filter((album) => {
           album.genre.includes(this.genSel);
         });
       },
       autFilter: function () {
-          this.autSel = '';
+        this.autSel = "";
         this.albums.filter((album) => {
           album.author.includes(this.autSel);
         });
+      },
+      sortIncr: function () {
+        this.albums.sort((a, b) => a.year - b.year);
+      },
+      sortDecr: function () {
+        this.albums.sort((a, b) => b.year - a.year);
       },
     },
   });
