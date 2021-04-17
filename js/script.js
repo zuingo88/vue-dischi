@@ -41,11 +41,13 @@ function initVue() {
     },
     methods: {
       genFilter: function () {
+          this.genSel = '';
         this.albums.filter((album) => {
           album.genre.includes(this.genSel);
         });
       },
       autFilter: function () {
+          this.autSel = '';
         this.albums.filter((album) => {
           album.author.includes(this.autSel);
         });
