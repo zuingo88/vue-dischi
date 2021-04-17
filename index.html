@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>zuingo88 - vue-dischi</title>
+    <!-- vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <!-- axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios@0.21.1/dist/axios.min.js"></script>
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- font awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+    />
+    <!-- my css -->
+    <link rel="stylesheet" href="css/main.css" />
+    <!-- my js -->
+    <script src="js/script.js"></script>
+  </head>
+  <body>
+    <div id="app" class="screen">
+      <div class="container flex">
+        <div class="left_bar flex_col">
+          <div class="title flex_center">
+            <img height="50px" width="50px" src="img/logo.png" alt="" />
+            <h1>disc</h1>
+          </div>
+        </div>
+        <div class="card_container flex_wrap just_start">
+          <div v-for="album in albums" class="card">
+            <img width="250px" height="250px" :src="album.poster" alt="" />
+            <h2>{{album.title}}</h2>
+            <h3>{{album.author}}</h3>
+            <p>#{{album.genre}}</p>
+            <p>Year: {{album.year}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
