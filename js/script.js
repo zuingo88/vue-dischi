@@ -10,16 +10,46 @@ function initVue() {
     el: "#app",
     data: {
       albums: [],
-      search: "",
+      genres: [],
+      authors: [],
+      genSel: "",
+      autSel: "",
+      filters: ["Author", "Genre", "Both"],
+      filter: "",
     },
     mounted() {
+      //prelevo dati dal server
       axios
         .get("https://flynn.boolean.careers/exercises/api/array/music")
         .then((response) => {
+          //metto i dati nella mia variabile 'albums'
           this.albums = response.data.response;
-          console.log(this.albums);
+          //metto, nella mia variabile 'genre', i generi musicali degli album, che ottengo tramite ciclo for
+          for (let i = 0; i < this.albums.length; i++) {
+            const album = this.albums[i];
+            const genre = album.genre;
+            const author = album.author;
+            if (!this.genres.includes(genre)) {
+              this.genres.push(genre);
+            }
+            if (!this.authors.includes(author)) {
+              this.authors.push(author);
+            }
+          }
         })
         .catch(() => console.log("error"));
+    },
+    methods: {
+      genFilter: function () {
+        this.albums.filter((album) => {
+          album.genre.includes(this.genSel);
+        });
+      },
+      autFilter: function () {
+        this.albums.filter((album) => {
+          album.author.includes(this.autSel);
+        });
+      },
     },
   });
 }

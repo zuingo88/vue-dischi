@@ -27,17 +27,51 @@
     <!-- my js -->
     <script src="js/script.js"></script>
   </head>
+
   <body>
     <div id="app" class="screen">
       <div class="container flex">
-        <div class="left_bar flex_col">
+        <!-- navbar -->
+        <nav class="flex_col">
           <div class="title flex_center">
-            <img height="50px" width="50px" src="img/logo.png" alt="" />
+            <img height="80px" width="80px" src="img/logo.png" alt="" />
             <h1>disc</h1>
           </div>
-        </div>
+          <div class="settings">
+            <div class="filter">
+
+              <select v-model="filter">
+                <option value="">Search for... </option>
+                <option v-for="filter in filters" :value="filter">
+                  {{filter}}
+                </option>
+              </select>
+
+              <select v-if="filter == 'Genre' || filter == 'Both'" v-model="genSel">
+                <option value="">Filter for genre</option>
+                <option v-for="genre in genres" :value="genre">
+                  {{genre}}
+                </option>
+              </select>
+
+              <select v-if="filter == 'Author' || filter == 'Both'" v-model="autSel">
+                <option value="">Filter for author</option>
+                <option v-for="author in authors" :value="author">
+                  {{author}}
+                </option>
+              </select>
+            </div>
+          </div>
+        </nav>
+        <!-- fine navbar -->
+
+        <!-- card_container -->
         <div class="card_container flex_wrap just_start">
-          <div v-for="album in albums" class="card">
+          <div
+            class="card"
+            v-for="album in albums"
+            v-if="(genSel == album.genre || genSel == '') && (autSel == album.author || autSel == '')"
+          >
             <img width="250px" height="250px" :src="album.poster" alt="" />
             <h2>{{album.title}}</h2>
             <h3>{{album.author}}</h3>
@@ -46,6 +80,8 @@
           </div>
         </div>
       </div>
+      <!-- fine container -->
     </div>
+    <!-- fine screen -->
   </body>
 </html>
