@@ -7,7 +7,7 @@
 #### - vue.js
 
 ---
-- I dischi arrivano tramiter chiamata API
+- I dischi arrivano tramite chiamata API
 - Possibilità di applicare due filtri alla ricerca
 - Possibilità di ordinare il risultato per anno di pubblicazione crescente o decrescente
 
